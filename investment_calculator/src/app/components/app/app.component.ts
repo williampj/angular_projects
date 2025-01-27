@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { UserInputComponent } from '../user-input/user-input.component';
 import { InvestmentResultsComponent } from '../investment-results/investment-results.component';
-import { UserInputModel } from '../../models/user-input.model';
+import { InvestmentInput } from '../../models/investment-input.model';
 import { CalculateService } from '../../services/calculate.service';
 import { AnnualData } from '../../models/annual-data.model';
 import { CommonModule } from '@angular/common';
@@ -23,9 +23,8 @@ export class AppComponent {
     this.calculateService = calculateService;
   }
 
-  userSubmit(userInput: UserInputModel) {
+  onCalculateInvestmentResults(userInput: InvestmentInput) {
     this.investmentResults = this.calculateService.calculateInvestmentResults(userInput);
-    console.log(this.investmentResults);
     this.userSubmitted = true;
   }
 }

@@ -1,6 +1,6 @@
 <div
-  class="no-results"
   *ngIf="!results || results.length === 0; else show_results"
+  class="no-results"
 >
   No results to display
 </div>
@@ -15,7 +15,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let result of results">
-        <td>{{ result.year | currency }}</td>
+        <td>{{ result.year }}</td>
         <td>{{ result.valueEndOfYear | currency }}</td>
         <td>{{ result.interest | currency }}</td>
         <td>{{ result.totalInterest | currency }}</td>
