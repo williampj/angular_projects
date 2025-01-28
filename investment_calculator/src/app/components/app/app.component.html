@@ -1,8 +1,5 @@
 <main>
   <HeaderComponent />
-  <UserInputComponent (userSubmit)="onCalculateInvestmentResults($event)" />
-  <InvestmentResultsComponent
-    *ngIf="userSubmitted"
-    [results]="investmentResults"
-  />
+  <UserInputComponent />
+  <InvestmentResultsComponent />
 </main>

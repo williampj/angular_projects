@@ -1,11 +1,7 @@
-<div
-  *ngIf="!results || results.length === 0; else show_results"
-  class="no-results"
->
-  No results to display
-</div>
-
-<ng-template #show_results>
+@if (!results() || results().length === 0) {
+<div class="no-results">No results to display</div>
+} @else {
+<div>
   <table>
     <thead>
       <tr>
@@ -14,13 +10,16 @@
       <td></td>
     </thead>
     <tbody>
-      <tr *ngFor="let result of results">
+      @for (result of results(); track result.year) {
+      <tr>
         <td>{{ result.year }}</td>
         <td>{{ result.valueEndOfYear | currency }}</td>
         <td>{{ result.interest | currency }}</td>
         <td>{{ result.totalInterest | currency }}</td>
         <td>{{ result.totalAmountInvested | currency }}</td>
       </tr>
+      }
     </tbody>
   </table>
-</ng-template>
+</div>
+}

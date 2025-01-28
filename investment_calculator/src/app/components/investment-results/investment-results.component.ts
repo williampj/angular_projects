@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
-import { AnnualData } from '../../models/annual-data.model';
-import { CommonModule, CurrencyPipe } from '@angular/common';
+import { Component, computed, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { InvestmentService } from '../../services/investment.service';
 
 @Component({
   selector: 'InvestmentResultsComponent',
@@ -11,6 +11,8 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
 })
 
 export class InvestmentResultsComponent {
-  @Input( {required: true}) results!: AnnualData[];
   resultsHeaders = ["Year", "Investment Value", "Interest (Year)", "Total Interest", "Invested Capital"];
+  private investmentService = inject(InvestmentService);
+  
+  results = this.investmentService.resultsData.asReadonly();
 }
