@@ -1,0 +1,25 @@
+<HeaderComponent />
+<main>
+  <div id="dashboard">
+    <DashboardItemComponent
+      [image]="dashboardItems['serverStatus'].image"
+      [title]="dashboardItems['serverStatus'].title"
+    >
+      <ServerStatusComponent />
+    </DashboardItemComponent>
+
+    <DashboardItemComponent
+      [image]="dashboardItems['traffic'].image"
+      [title]="dashboardItems['traffic'].title"
+    >
+      <TrafficComponent />
+    </DashboardItemComponent>
+
+    <DashboardItemComponent
+      [image]="dashboardItems['ticket'].image"
+      [title]="dashboardItems['ticket'].title"
+    >
+      <TicketsComponent />
+    </DashboardItemComponent>
+  </div>
+</main>
